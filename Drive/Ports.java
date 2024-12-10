@@ -16,6 +16,8 @@ public final class Ports {
     public static final int OPERATOR = 0;
     public static final int DRIVER = 1;
   }
+public class Drive extends SubsystemBase {
 
+}
 
 }
