@@ -17,6 +17,9 @@ public class Drive extends SubsystemBase {
 	  rightLeader.setInverted(true);
 
   }
-
+  private void drive(double leftSpeed, double rightSpeed) {
+    leftLeader.set(leftSpeed);
+    rightLeader.set(rightSpeed);
+  }
 }
 
