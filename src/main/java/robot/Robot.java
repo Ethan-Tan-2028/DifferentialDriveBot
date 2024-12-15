@@ -34,6 +34,7 @@ public class Robot extends CommandRobot implements Logged {
   private final PowerDistribution pdh = new PowerDistribution();
 
   // SUBSYSTEMS
+  Drive drive = new Drive();
 
   // COMMANDS
 
@@ -70,8 +71,9 @@ public class Robot extends CommandRobot implements Logged {
   }
 
   /** Configures trigger -> command bindings. */
-  private void configureBindings() {}
-
+  private void configureBindings() {
+	drive.setDefaultCommand(drive.drive(driver::getLeftY, driver::getRightY));
+}
   /**
    * Command factory to make both controllers rumble.
    *
@@ -92,6 +94,10 @@ public class Robot extends CommandRobot implements Logged {
               operator.getHID().setRumble(rumbleType, 0);
             });
   }
+
+  public Command drive(DoubleSupplier vLeft, DoubleSupplier vRight);
+    return run(() -> drive(vLeft.getAsDouble(), vRight.getAsDouble()));
+
 
   @Override
   public void close() {
